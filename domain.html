@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domain — EMOTIX Research</title>
+  <meta name="description" content="Research domain, literature survey, methodology, objectives and technologies used in the EMOTIX project." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300d4aa'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='900' fill='%23060f0f' font-family='sans-serif'>E</text></svg>" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <span class="dot"></span>EMOT<span>IX</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="domain.html">Domain</a></li>
+          <li><a href="milestones.html">Milestones</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="presentations.html">Presentations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="domain.html">Domain</a>
+    <a href="milestones.html">Milestones</a>
+    <a href="documents.html">Documents</a>
+    <a href="presentations.html">Presentations</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <!-- ── Page Header ── -->
+  <div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="container page-header-content">
+      <span class="section-label">Research Domain</span>
+      <h1>Project Domain</h1>
+      <p>Literature survey, research gap, objectives, methodology and technologies.</p>
+    </div>
+  </div>
+
+  <!-- ── Content ── -->
+  <section>
+    <div class="container">
+
+      <!-- 1. Literature Survey -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">01</div>
+          <h2>Literature Survey</h2>
+        </div>
+        <p>
+          Previous research on workplace wellness relied on manual self-reporting, wearable devices,
+          cloud-based monitoring, and basic attendance tracking systems. Traditional platforms used
+          facial emotion recognition for stress detection but raised privacy concerns due to cloud
+          processing. Recent studies explored computer vision for gaze tracking, deep learning for
+          analyzing facial expressions, and edge computing for privacy. However, existing systems
+          lack integration of routine learning, focus detection, stress analysis, and AI-based
+          employee assistance in a single secure platform.
+        </p>
+        <p style="margin-top:14px;">
+          Studies on eye-tracking systems demonstrated effectiveness in measuring cognitive load,
+          while temporal models such as LSTM networks showed promise for analyzing emotional
+          trajectories over extended work sessions. Cybersecurity frameworks for IoT-based
+          monitoring remain underexplored, especially in the context of sensitive biometric
+          data collected in workplace environments.
+        </p>
+      </div>
+
+      <!-- 2. Research Gap -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">02</div>
+          <h2>Research Gap</h2>
+        </div>
+        <p>
+          Existing systems lack real-time mental wellness monitoring with privacy-preserving local
+          processing. Current platforms do not combine adaptive routine learning, attention tracking,
+          temporal stress detection, and conversational AI support in one ecosystem while ensuring
+          data security and employee privacy.
+        </p>
+        <p style="margin-top:14px;">
+          No existing solution addresses the complete pipeline — from on-device biometric capture to
+          encrypted storage, real-time analysis, and proactive conversational recommendations — within
+          a single unified, deployable framework suitable for enterprise environments.
+        </p>
+      </div>
+
+      <!-- 3. Research Problem -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">03</div>
+          <h2>Research Problem</h2>
+        </div>
+        <p>
+          Modern workplaces create mental exhaustion and decreased focus through constant digital
+          connectivity. Main impact areas include:
+        </p>
+        <ul class="objectives-list" style="margin-top:16px;">
+          <li>Privacy violations from cloud-based data exposure of sensitive biometric information.</li>
+          <li>Incomplete assessment — tracking only presence, not actual mental states or wellness.</li>
+          <li>Security gaps in monitoring infrastructure exposing employee data to cyber threats.</li>
+          <li>Lack of real-time support with delayed or generic wellness recommendations.</li>
+          <li>Employee distrust from invasive monitoring without adequate data protection.</li>
+        </ul>
+      </div>
+
+      <!-- 4. Research Objectives -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">04</div>
+          <h2>Research Objectives</h2>
+        </div>
+        <ul class="objectives-list">
+          <li>Develop an edge-based routine monitoring system for privacy-preserving individual work pattern learning using TinyML on Raspberry Pi.</li>
+          <li>Develop an eye-tracking system for real-time focus and fatigue detection using EAR algorithm, gaze estimation, and fixation tracking.</li>
+          <li>Develop a facial expression analysis system for temporal stress recognition using CNN and LSTM models with the FER+ dataset.</li>
+          <li>Develop an AI chatbot for personalized wellness recommendations based on aggregated focus, stress, and behavioral data.</li>
+          <li>Develop an encryption and cybersecurity framework (AES-256-GCM, HMAC-SHA256, AI Honeypot) for robust data protection.</li>
+        </ul>
+      </div>
+
+      <!-- 5. Methodology -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">05</div>
+          <h2>Methodology</h2>
+        </div>
+        <p>
+          The EMOTIX pipeline is structured as a sequential, modular workflow from raw sensor data
+          to actionable wellness insights — all processed locally on-device:
+        </p>
+        <div class="pipeline">
+          <div class="pipeline-step">
+            <div class="pipeline-icon">📷</div>
+            <div class="pipeline-title">Data Collection</div>
+            <div class="pipeline-desc">Cameras capture facial expressions &amp; eye movements; sensors record workplace conditions.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">⚡</div>
+            <div class="pipeline-title">Edge Processing</div>
+            <div class="pipeline-desc">Raspberry Pi processes data locally to learn work patterns via TinyML.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">👁️</div>
+            <div class="pipeline-title">Computer Vision</div>
+            <div class="pipeline-desc">Eye tracking computes focus scores from gaze, blink rate, and fixation data.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">🧠</div>
+            <div class="pipeline-title">Deep Learning</div>
+            <div class="pipeline-desc">CNN extracts emotions; LSTM analyzes temporal patterns for stress scoring.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">💬</div>
+            <div class="pipeline-title">AI Chatbot</div>
+            <div class="pipeline-desc">Converts analytics into personalized wellness recommendations.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">🔒</div>
+            <div class="pipeline-title">Security</div>
+            <div class="pipeline-desc">AES-256-GCM encrypts data; AI Honeypot defends infrastructure.</div>
+          </div>
+          <div class="pipeline-step">
+            <div class="pipeline-icon">📊</div>
+            <div class="pipeline-title">Output</div>
+            <div class="pipeline-desc">Dashboard displays real-time focus, stress, and wellness insights.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Technologies Used -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">06</div>
+          <h2>Technologies Used</h2>
+        </div>
+        <div class="tech-categories">
+          <div class="tech-category">
+            <h4>🖥️ Hardware</h4>
+            <ul>
+              <li>Raspberry Pi (edge computing)</li>
+              <li>Camera sensors (facial &amp; eye)</li>
+              <li>Environmental sensors</li>
+              <li>Light, temperature, noise</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h4>🤖 ML &amp; AI</h4>
+            <ul>
+              <li>TinyML (routine learning)</li>
+              <li>CNN (facial emotion recognition)</li>
+              <li>LSTM (temporal analysis)</li>
+              <li>Isolation Forest (anomaly detection)</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h4>👁️ Computer Vision</h4>
+            <ul>
+              <li>OpenCV (landmark detection)</li>
+              <li>MediaPipe FaceMesh</li>
+              <li>EAR Algorithm (blink detection)</li>
+              <li>Gaze &amp; fixation tracking</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h4>🔐 Security</h4>
+            <ul>
+              <li>AES-256-GCM encryption</li>
+              <li>HMAC-SHA256 integrity</li>
+              <li>AI-based Honeypot</li>
+              <li>HTTP &amp; MQTT monitoring</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h4>📐 Models &amp; Frameworks</h4>
+            <ul>
+              <li>FER+ Dataset</li>
+              <li>Russell Circumplex Model</li>
+              <li>Rule-based AI chatbot</li>
+              <li>Weighted scoring algorithms</li>
+            </ul>
+          </div>
+          <div class="tech-category">
+            <h4>🚀 Deployment</h4>
+            <ul>
+              <li>Web-based dashboard</li>
+              <li>Real-time monitoring UI</li>
+              <li>Local edge architecture</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span class="dot"></span>EMOT<span>IX</span></a>
+          <p>AI System for Employee Assistant and Mental Wellness. A research project by SLIIT undergraduate students.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="domain.html">Domain</a></li>
+            <li><a href="milestones.html">Milestones</a></li>
+            <li><a href="documents.html">Documents</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More</h4>
+          <ul>
+            <li><a href="presentations.html">Presentations</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; 2024–2025 <span>EMOTIX Research Team</span>. All rights reserved.</p>
+        <p>SLIIT · Faculty of Computing · IT Research Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
