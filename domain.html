@@ -56,46 +56,66 @@
   <section>
     <div class="container">
 
+      <!-- Abstract -->
+      <div class="domain-section" style="background: rgba(0,212,170,0.03); border: 1px solid rgba(0,212,170,0.1); padding: 40px; border-radius: var(--radius-lg); margin-bottom: 60px;">
+        <span class="section-label">Research Abstract</span>
+        <h2 class="section-title mt-8">EMOTIX: AI System for Employee Assistant and Mental Wellness</h2>
+        <p style="font-style: italic; color: var(--text-secondary); line-height: 1.8; margin-top: 20px;">
+          EMOTIX is an intelligent, privacy-conscious smart workplace ecosystem designed to enhance employee wellness, concentration, stress awareness, and system security in contemporary online workspaces. The system combines several artificial intelligence modules, such as adaptive routine monitoring using TinyML, focus detection using computer vision, stress recognition using deep learning, AI chatbot support, and cybersecurity protection by deception. The adaptive routine module trains individual work patterns locally on Raspberry Pi edge devices, providing privacy by processing on-site and updating routines with human-in-the-loop consent. Focus detection employs eye tracking, blink rate analysis, and environmental sensing to produce real-time focus scores. Simultaneously, a safe stress detection pipeline based on CNN and LSTM models tracks facial emotion trends to calculate dynamic stress scores through valence-arousal mapping. Protected by AES-256-GCM encryption and an AI-based honeypot, EMOTIX offers a human-friendly, scalable, and secure platform for intelligent workplace wellness support.
+        </p>
+        <div style="margin-top: 24px;">
+          <strong>Keywords —</strong> <span style="color: var(--accent);">Workplace wellness, TinyML, focus detection, stress recognition, computer vision, CNN-LSTM, AI chatbot, honeypot security, edge computing, privacy-preserving AI.</span>
+        </div>
+      </div>
+
       <!-- 1. Literature Survey -->
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">01</div>
-          <h2>Literature Survey</h2>
+          <div>
+            <span class="section-label">Literature Survey</span>
+            <h2>What Came Before EMOTIX</h2>
+          </div>
         </div>
-        <p>
-          Previous research on workplace wellness relied on manual self-reporting, wearable devices,
-          cloud-based monitoring, and basic attendance tracking systems. Traditional platforms used
-          facial emotion recognition for stress detection but raised privacy concerns due to cloud
-          processing. Recent studies explored computer vision for gaze tracking, deep learning for
-          analyzing facial expressions, and edge computing for privacy. However, existing systems
-          lack integration of routine learning, focus detection, stress analysis, and AI-based
-          employee assistance in a single secure platform.
-        </p>
-        <p style="margin-top:14px;">
-          Studies on eye-tracking systems demonstrated effectiveness in measuring cognitive load,
-          while temporal models such as LSTM networks showed promise for analyzing emotional
-          trajectories over extended work sessions. Cybersecurity frameworks for IoT-based
-          monitoring remain underexplored, especially in the context of sensitive biometric
-          data collected in workplace environments.
-        </p>
+        <div style="display: grid; gap: 24px;">
+          <p>
+            The fast expansion of digital workplaces has had a profound impact on how employees relate with technology. A rise in screen time, cognitive load, and multitasking have been cited as significant contributors to decreasing focus and increasing stress. Traditional wellness platforms rely on predetermined notifications and wearable biosensors that are not always able to capture evolving individual work patterns.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="tech-category">
+              <h4>Embedded Monitoring</h4>
+              <p>Recent research favors adaptive machine learning systems that autonomously model behavior. However, many existing systems update routines without approval, causing privacy and trust issues.</p>
+            </div>
+            <div class="tech-category">
+              <h4>Computer Vision Focus</h4>
+              <p>Older systems monitor attendance but not true focus. Modern approaches like MediaPipeFaceMesh allow gaze tracking and blink detection to measure fatigue and distraction.</p>
+            </div>
+            <div class="tech-category">
+              <h4>Affective Computing</h4>
+              <p>Stress detection has moved from invasive wearables (EEG/ECG) to non-invasive facial emotion recognition using CNN and LSTM networks for temporal analysis.</p>
+            </div>
+            <div class="tech-category">
+              <h4>Conversational Assistants</h4>
+              <p>Context-sensitive chatbots have been demonstrated to enhance interaction by transforming technical analytics into comprehensible wellness suggestions.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- 2. Research Gap -->
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">02</div>
-          <h2>Research Gap</h2>
+          <div>
+            <span class="section-label">Research Gap</span>
+            <h2>What's Still Missing</h2>
+          </div>
         </div>
         <p>
-          Existing systems lack real-time mental wellness monitoring with privacy-preserving local
-          processing. Current platforms do not combine adaptive routine learning, attention tracking,
-          temporal stress detection, and conversational AI support in one ecosystem while ensuring
-          data security and employee privacy.
+          Existing systems lack real-time mental wellness monitoring with privacy-preserving local processing. No current platform combines adaptive routine learning, attention tracking, temporal stress detection, and conversational AI support in one ecosystem while also ensuring data security.
         </p>
         <p style="margin-top:14px;">
-          No existing solution addresses the complete pipeline — from on-device biometric capture to
-          encrypted storage, real-time analysis, and proactive conversational recommendations — within
-          a single unified, deployable framework suitable for enterprise environments.
+          Most CNN-based stress systems classify single frames without temporal context; environmental data is almost never fused into focus models; and no affective monitoring system pairs AES-256-GCM encryption with HMAC-SHA256 packet-level authentication as a unified transmission security layer. EMOTIX closes this gap by offering adaptive monitoring with human-in-the-loop consent.
         </p>
       </div>
 
@@ -103,94 +123,142 @@
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">03</div>
-          <h2>Research Problem</h2>
+          <div>
+            <span class="section-label">Research Problem</span>
+            <h2>The Problem EMOTIX Solves</h2>
+          </div>
         </div>
-        <p>
-          Modern workplaces create mental exhaustion and decreased focus through constant digital
-          connectivity. Main impact areas include:
-        </p>
-        <ul class="objectives-list" style="margin-top:16px;">
-          <li>Privacy violations from cloud-based data exposure of sensitive biometric information.</li>
-          <li>Incomplete assessment — tracking only presence, not actual mental states or wellness.</li>
-          <li>Security gaps in monitoring infrastructure exposing employee data to cyber threats.</li>
-          <li>Lack of real-time support with delayed or generic wellness recommendations.</li>
-          <li>Employee distrust from invasive monitoring without adequate data protection.</li>
-        </ul>
+        <p>Modern workplaces create mental exhaustion and decreased focus. EMOTIX addresses five core failure modes of existing systems:</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-top:20px;">
+          <div class="tech-category" style="border-left:3px solid var(--accent);">
+            <h4>☁️ Privacy Violations</h4>
+            <p>Cloud-based platforms expose sensitive biometric data without adequate protection.</p>
+          </div>
+          <div class="tech-category" style="border-left:3px solid var(--accent);">
+            <h4>🎭 Incomplete Assessment</h4>
+            <p>Systems track only presence — not actual mental states or wellness.</p>
+          </div>
+          <div class="tech-category" style="border-left:3px solid var(--accent);">
+            <h4>🔓 Security Gaps</h4>
+            <p>Monitoring infrastructure leaves employee data vulnerable to cyber threats.</p>
+          </div>
+          <div class="tech-category" style="border-left:3px solid var(--accent);">
+            <h4>⏱️ No Real-Time Support</h4>
+            <p>Wellness recommendations are delayed, generic, and not personalized.</p>
+          </div>
+          <div class="tech-category" style="border-left:3px solid var(--accent);">
+            <h4>👁️ Employee Distrust</h4>
+            <p>Invasive monitoring without data protection destroys workforce trust.</p>
+          </div>
+        </div>
       </div>
 
       <!-- 4. Research Objectives -->
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">04</div>
-          <h2>Research Objectives</h2>
+          <div>
+            <span class="section-label">Research Objectives</span>
+            <h2>What We Set Out to Build</h2>
+          </div>
         </div>
-        <ul class="objectives-list">
-          <li>Develop an edge-based routine monitoring system for privacy-preserving individual work pattern learning using TinyML on Raspberry Pi.</li>
-          <li>Develop an eye-tracking system for real-time focus and fatigue detection using EAR algorithm, gaze estimation, and fixation tracking.</li>
-          <li>Develop a facial expression analysis system for temporal stress recognition using CNN and LSTM models with the FER+ dataset.</li>
-          <li>Develop an AI chatbot for personalized wellness recommendations based on aggregated focus, stress, and behavioral data.</li>
-          <li>Develop an encryption and cybersecurity framework (AES-256-GCM, HMAC-SHA256, AI Honeypot) for robust data protection.</li>
-        </ul>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-top:20px;">
+          <div class="tech-category">
+            <h4><span style="color:var(--accent); font-weight:900; margin-right:8px;">01</span>Edge-Based Routine Monitoring</h4>
+            <p>Privacy-preserving individual work pattern learning using TinyML on Raspberry Pi.</p>
+          </div>
+          <div class="tech-category">
+            <h4><span style="color:var(--accent); font-weight:900; margin-right:8px;">02</span>Eye-Tracking &amp; Focus Detection</h4>
+            <p>Real-time fatigue and attention detection using EAR algorithm, gaze estimation, and fixation tracking.</p>
+          </div>
+          <div class="tech-category">
+            <h4><span style="color:var(--accent); font-weight:900; margin-right:8px;">03</span>Temporal Stress Recognition</h4>
+            <p>Facial expression analysis using CNN + LSTM models trained on the FER+ dataset.</p>
+          </div>
+          <div class="tech-category">
+            <h4><span style="color:var(--accent); font-weight:900; margin-right:8px;">04</span>AI Wellness Chatbot</h4>
+            <p>Personalized recommendations generated from aggregated focus, stress, and behavioral data.</p>
+          </div>
+          <div class="tech-category">
+            <h4><span style="color:var(--accent); font-weight:900; margin-right:8px;">05</span>Encryption &amp; Cybersecurity</h4>
+            <p>Robust data protection via AES-256-GCM, HMAC-SHA256, and an AI Honeypot.</p>
+          </div>
+        </div>
       </div>
 
       <!-- 5. Methodology -->
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">05</div>
-          <h2>Methodology</h2>
+          <div>
+            <span class="section-label">Methodology</span>
+            <h2>How EMOTIX Works</h2>
+          </div>
         </div>
-        <p>
-          The EMOTIX pipeline is structured as a sequential, modular workflow from raw sensor data
-          to actionable wellness insights — all processed locally on-device:
-        </p>
-        <div class="pipeline">
-          <div class="pipeline-step">
-            <div class="pipeline-icon">📷</div>
-            <div class="pipeline-title">Data Collection</div>
-            <div class="pipeline-desc">Cameras capture facial expressions &amp; eye movements; sensors record workplace conditions.</div>
+        <p>A modular experimental system design involving AI, computer vision, TinyML, and cybersecurity:</p>
+        <div style="display: grid; gap: 20px; margin-top: 24px;">
+          <div class="tech-category">
+            <strong>A. Data Acquisition:</strong> Facial expression, eye movements, and environmental variables (light, noise, temperature) are captured via non-obtrusive sensors.
           </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">⚡</div>
-            <div class="pipeline-title">Edge Processing</div>
-            <div class="pipeline-desc">Raspberry Pi processes data locally to learn work patterns via TinyML.</div>
+          <div class="tech-category">
+            <strong>B. Adaptive Routine (TinyML):</strong> Raspberry Pi logs presence timestamps for 2 weeks to build a baseline. The model uses μ ± max(1.5σ, 45min) to detect behavioral shifts.
           </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">👁️</div>
-            <div class="pipeline-title">Computer Vision</div>
-            <div class="pipeline-desc">Eye tracking computes focus scores from gaze, blink rate, and fixation data.</div>
+          <div class="tech-category">
+            <strong>C. Focus Detection:</strong> MediaPipe identifies landmarks for EAR (blink rate) and gaze estimation. A weighted formula computes focus scores in real-time.
           </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">🧠</div>
-            <div class="pipeline-title">Deep Learning</div>
-            <div class="pipeline-desc">CNN extracts emotions; LSTM analyzes temporal patterns for stress scoring.</div>
+          <div class="tech-category">
+            <strong>D. AI Chatbot:</strong> A rule-based engine converts analytical outputs into personalized break reminders and workspace adjustment suggestions.
           </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">💬</div>
-            <div class="pipeline-title">AI Chatbot</div>
-            <div class="pipeline-desc">Converts analytics into personalized wellness recommendations.</div>
+          <div class="tech-category">
+            <strong>E. Stress Detection (CNN-LSTM):</strong> CNN classifies emotions; an LSTM analyzes transitions across a 15-frame sliding buffer to predict stress via valence-arousal mapping.
           </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">🔒</div>
-            <div class="pipeline-title">Security</div>
-            <div class="pipeline-desc">AES-256-GCM encrypts data; AI Honeypot defends infrastructure.</div>
-          </div>
-          <div class="pipeline-step">
-            <div class="pipeline-icon">📊</div>
-            <div class="pipeline-title">Output</div>
-            <div class="pipeline-desc">Dashboard displays real-time focus, stress, and wellness insights.</div>
+          <div class="tech-category">
+            <strong>F. Security Layer:</strong> AES-256-GCM encryption and HMAC-SHA256 authentication protect emotional data, while a honeypot defends the IoT infrastructure.
           </div>
         </div>
       </div>
 
-      <!-- 6. Technologies Used -->
+      <!-- 6. Data Analysis -->
       <div class="domain-section">
         <div class="domain-section-header">
           <div class="domain-num">06</div>
-          <h2>Technologies Used</h2>
+          <div>
+            <span class="section-label">Data Analysis</span>
+            <h2>Analytical Framework</h2>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+          <div class="tech-category">
+            <h4>Routine Analysis</h4>
+            <p>Uses mean and standard deviation to differentiate normal variation from major routine changes. Tolerance model: μ + max(1.5σ, 45min).</p>
+          </div>
+          <div class="tech-category">
+            <h4>Focus Scoring</h4>
+            <p>Focus = w₁(1 − B) + w₂G + w₃F + w₄E. Analyzes EAR, gaze alignment, fixation duration, and environmental context.</p>
+          </div>
+          <div class="tech-category">
+            <h4>Stress Validation</h4>
+            <p>Evaluates CNN-LSTM outputs against the Russell Circumplex Model. Validated via confusion matrices, precision, and temporal consistency.</p>
+          </div>
+          <div class="tech-category">
+            <h4>Cybersecurity Evaluation</h4>
+            <p>Honeypot effectiveness measured via True Positive Rate (TPR), False Positive Rate (FPR), and Isolation Forest anomaly scores.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Technologies Used -->
+      <div class="domain-section">
+        <div class="domain-section-header">
+          <div class="domain-num">07</div>
+          <div>
+            <span class="section-label">Technologies Used</span>
+            <h2>The Stack Behind EMOTIX</h2>
+          </div>
         </div>
         <div class="tech-categories">
           <div class="tech-category">
-            <h4>🖥️ Hardware</h4>
+            <h4>&#x1f5a5;&#xfe0f; Hardware</h4>
             <ul>
               <li>Raspberry Pi (edge computing)</li>
               <li>Camera sensors (facial &amp; eye)</li>
@@ -199,7 +267,7 @@
             </ul>
           </div>
           <div class="tech-category">
-            <h4>🤖 ML &amp; AI</h4>
+            <h4>&#x1f916; ML &amp; AI</h4>
             <ul>
               <li>TinyML (routine learning)</li>
               <li>CNN (facial emotion recognition)</li>
@@ -208,7 +276,7 @@
             </ul>
           </div>
           <div class="tech-category">
-            <h4>👁️ Computer Vision</h4>
+            <h4>&#x1f441;&#xfe0f; Computer Vision</h4>
             <ul>
               <li>OpenCV (landmark detection)</li>
               <li>MediaPipe FaceMesh</li>
@@ -217,25 +285,29 @@
             </ul>
           </div>
           <div class="tech-category">
-            <h4>🔐 Security</h4>
+            <h4>&#x1f510; Security</h4>
             <ul>
               <li>AES-256-GCM encryption</li>
               <li>HMAC-SHA256 integrity</li>
               <li>AI-based Honeypot</li>
               <li>HTTP &amp; MQTT monitoring</li>
+              <li>Isolation Forest</li>
+              <li>Flask</li>
             </ul>
           </div>
           <div class="tech-category">
-            <h4>📐 Models &amp; Frameworks</h4>
+            <h4>&#x1f4d0; Models &amp; Frameworks</h4>
             <ul>
               <li>FER+ Dataset</li>
+              <li>CK+ Dataset</li>
               <li>Russell Circumplex Model</li>
+              <li>Categorical Focal Loss</li>
               <li>Rule-based AI chatbot</li>
               <li>Weighted scoring algorithms</li>
             </ul>
           </div>
           <div class="tech-category">
-            <h4>🚀 Deployment</h4>
+            <h4>&#x1f680; Deployment</h4>
             <ul>
               <li>Web-based dashboard</li>
               <li>Real-time monitoring UI</li>
@@ -276,8 +348,8 @@
       </div>
       <hr class="footer-divider" />
       <div class="footer-bottom">
-        <p>&copy; 2024–2025 <span>EMOTIX Research Team</span>. All rights reserved.</p>
-        <p>SLIIT · Faculty of Computing · IT Research Project</p>
+        <p>&copy; 2025–2026 <span>EMOTIX Research Team</span>. All rights reserved.</p>
+        <p>SLIIT · Faculty of Computing · Group 25-26J-007</p>
       </div>
     </div>
   </footer>
