@@ -57,14 +57,13 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="led"></span>
-          Research Project · SLIIT · 2024/25
+          Research Project · SLIIT · 2025/26
         </div>
         <h1>EMOT<span class="highlight">IX</span></h1>
         <p class="hero-sub">AI System for Employee Assistant &amp; Mental Wellness</p>
         <p class="hero-desc">
-          A privacy-preserving, edge-computing AI platform that monitors workplace mental wellness
-          in real time — detecting stress, fatigue, and focus levels without compromising
-          employee privacy.
+          Your workplace, intelligently understood. EMOTIX detects stress, fatigue, and lost focus
+          in real time — processing everything on-device, so your data never leaves the room.
         </p>
         <div class="hero-actions">
           <a href="domain.html" class="btn btn-primary">Explore Research →</a>
@@ -121,77 +120,295 @@
         workplace mental wellness.
       </p>
 
-      <div class="features-grid">
-        <!-- Feature 1 -->
-        <div class="feature-card fade-in fade-in-1">
-          <div class="feature-icon">🧠</div>
-          <h3>Real-Time Secure AI Stress Detection</h3>
-          <p>
-            Analyzes facial expressions using CNN + LSTM deep learning models on a privacy-preserving
-            edge device. Detects temporal stress patterns mapped through the Russell Circumplex
-            valence-arousal model — all without uploading to the cloud.
-          </p>
+      <div class="detailed-components-grid">
+        
+        <!-- Component 1: Eye Focus Detection (Perera) -->
+        <div class="comp-card">
+          <div class="comp-icon" style="background: rgba(255, 193, 7, 0.1); color: #ffc107;">👁️</div>
+          <h3>AI-based eye focus detection & adaptive learning assistant</h3>
+          <div class="comp-author">L.W.D.K Perera - IT22601810</div>
+          
+          <div class="comp-section">
+            <h4>OVERVIEW</h4>
+            <p>A non-intrusive, wearable-free focus monitoring system that captures real attention rather than just presence. Combines eye tracking with environmental sensing for context-aware focus scoring — all in real-time.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>HOW IT WORKS</h4>
+            <ol class="comp-list">
+              <li><strong>Facial landmark detection:</strong> OpenCV + MediaPipe FaceMesh identifies 468 facial landmarks in real-time video streams per frame.</li>
+              <li><strong>Eye metrics extraction:</strong> Eye Aspect Ratio (EAR) detects blink patterns and fatigue. Gaze direction and fixation duration assess sustained attention and distraction events.</li>
+              <li><strong>Environmental context integration:</strong> Light, noise, and temperature sensor data are fused with eye metrics. High noise correlates negatively with focus duration; poor lighting increases blink rate.</li>
+              <li><strong>Focus score computation:</strong> focus = (w1*f) + (w2*e) + (w3*g) + (w4*d), normalized 0-1. Weighted penalties applied for non-center gaze, high blink frequency, and short fixations.</li>
+              <li><strong>Dashboard & adaptive feedback:</strong> Real-time focus score drives an intelligent dashboard. AI assistant generates personalized concentration reminders and wellness break requests.</li>
+            </ol>
+          </div>
+
+          <div class="comp-section">
+            <h4>VALIDATION METRICS</h4>
+            <p>Focus classifier accuracy, precision, recall, F1-score. Time-series analysis detects fatigue patterns and peak distraction periods across long work sessions.</p>
+          </div>
+
+          <div class="comp-tech-tags">
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">MediaPipe FaceMesh</span>
+            <span class="tech-tag">EAR Algorithm</span>
+            <span class="tech-tag">Gaze estimation</span>
+            <span class="tech-tag">Environmental sensing</span>
+            <span class="tech-tag">Weighted scoring</span>
+            <span class="tech-tag">Personalized Feedback</span>
+          </div>
         </div>
-        <!-- Feature 2 -->
-        <div class="feature-card fade-in fade-in-2">
-          <div class="feature-icon">🔄</div>
-          <h3>Adaptive Routine Monitoring &amp; Wellness Support</h3>
-          <p>
-            Uses TinyML on Raspberry Pi to learn individual employee work patterns over time.
-            An AI chatbot converts behavioral analytics into personalized wellness recommendations
-            and proactive interventions.
-          </p>
+
+        <!-- Component 2: Stress Detection (Amdi/Kariyawasam) -->
+        <div class="comp-card">
+          <div class="comp-icon" style="background: rgba(255, 64, 129, 0.1); color: #ff4081;">🧠</div>
+          <h3>Real-time secure AI stress detection</h3>
+          <div class="comp-author">K.G.A.N. Kariyawasam - IT22927170</div>
+          
+          <div class="comp-section">
+            <h4>OVERVIEW</h4>
+            <p>A non-invasive, privacy-preserving stress monitoring pipeline that runs entirely on edge hardware. Replaces EEG/ECG wearables with facial video analysis, ensuring no raw emotional data leaves the device.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>HOW IT WORKS</h4>
+            <ol class="comp-list">
+              <li><strong>Preprocessing:</strong> Facial images converted to 48x48 grayscale normalized inputs from live camera feed.</li>
+              <li><strong>CNN emotion recognition:</strong> CNN trained on FER+ dataset classifies 8 emotion categories per frame, outputting probability vectors.</li>
+              <li><strong>LSTM temporal analysis:</strong> A 15-frame sliding buffer feeds an LSTM model that captures emotional transitions over time, predicting valence and arousal values.</li>
+              <li><strong>Stress score generation:</strong> Valence-arousal values are mapped to the Russell Circumplex Model to compute a normalized stress score, stronger than single-frame analysis.</li>
+            </ol>
+          </div>
+
+          <div class="comp-section">
+            <h4>SECURITY LAYER</h4>
+            <p>AES-256-GCM encryption protects all emotional data in transit. HMAC-SHA256 ensures integrity and tamper detection. IV reuse is prevented using device MAC address + message counters.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>VALIDATION METRICS</h4>
+            <p>Classification accuracy, confusion matrix, precision, recall, and temporal consistency. Stress score trends analyzed per session to identify high stress periods. The system filters momentary facial micro-expressions to maintain long-term predictive stability. Performance is validated across diverse environmental lighting and facial feature variations. The model is specifically optimized for ARM-based edge processors to ensure high-frequency real-time inference.</p>
+          </div>
+
+          <div class="comp-tech-tags">
+            <span class="tech-tag">CNN</span>
+            <span class="tech-tag">LSTM</span>
+            <span class="tech-tag">FER+ dataset</span>
+            <span class="tech-tag">Russell Circumplex</span>
+            <span class="tech-tag">AES-256-GCM</span>
+            <span class="tech-tag">HMAC-SHA256</span>
+            <span class="tech-tag">Edge computing</span>
+          </div>
         </div>
-        <!-- Feature 3 — Placeholder for Dileesha -->
-        <div class="feature-card fade-in fade-in-3">
-          <div class="feature-icon">👁️</div>
-          <h3>[ Dileesha's Component ]</h3>
-          <p>
-            <em style="color:var(--text-muted);">[ Placeholder — Add description of Dileesha's research component here. ]</em>
-          </p>
+
+        <!-- Component 3: Honeypot Security (Jayarathna) -->
+        <div class="comp-card">
+          <div class="comp-icon" style="background: rgba(76, 175, 80, 0.1); color: #4caf50;">🔒</div>
+          <h3>Emotix honeypot — deception-based attack detection</h3>
+          <div class="comp-author">S.A.V.P. Jayarathna - IT22560612</div>
+          
+          <div class="comp-section">
+            <h4>OVERVIEW</h4>
+            <p>A lightweight, deception-based cybersecurity layer designed to protect the EMOTIX IoT and embedded infrastructure. Lures attackers into fake services, captures malicious behavior, and switches between passive and active modes.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>HOW IT WORKS</h4>
+            <ol class="comp-list">
+              <li><strong>Decoy services deployment:</strong> Fake login interfaces and decoy HTTP & MQTT services are exposed to attract attackers away from real system seeds.</li>
+              <li><strong>Passive traffic monitoring:</strong> MQTT and HTTP traffic is continuously observed. Frequency distributions and anomaly scores are computed per request to build a behavioral baseline.</li>
+              <li><strong>Isolation Forest anomaly detection:</strong> ML model detects anomalous behavior including SQL injection, XSS, and path traversal attacks. Validated using True Positive Rate (TPR), False Positive Rate (FPR).</li>
+              <li><strong>Active deception mode:</strong> When a threat is confirmed, the system switches from passive to active mode — engaging the attacker in fake interactions to capture intent.</li>
+            </ol>
+          </div>
+
+          <div class="comp-section">
+            <h4>INTEGRATION WITH EMOTIX SECURITY</h4>
+            <p>Works alongside AES-256-GCM encryption and HMAC-SHA256 integrity checks to form a complete security layer. Protects sensitive employee wellness data and stress scores.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>VALIDATION METRICS</h4>
+            <p>True Positive Rate (TPR), False Positive Rate (FPR), detection latency, deception mode activation frequency, and comparative rule-based vs AI-based detection performance.</p>
+          </div>
+
+          <div class="comp-tech-tags">
+            <span class="tech-tag">Isolation Forest</span>
+            <span class="tech-tag">HTTP Honeypot</span>
+            <span class="tech-tag">MQTT Honeypot</span>
+            <span class="tech-tag">SQL Injection detection</span>
+            <span class="tech-tag">XSS detection</span>
+            <span class="tech-tag">Path traversal</span>
+            <span class="tech-tag">Rule-based detection</span>
+          </div>
         </div>
-        <!-- Feature 4 — Placeholder for Vihanga -->
-        <div class="feature-card fade-in fade-in-4">
-          <div class="feature-icon">🔒</div>
-          <h3>[ Vihanga's Component ]</h3>
-          <p>
-            <em style="color:var(--text-muted);">[ Placeholder — Add description of Vihanga's research component here. ]</em>
-          </p>
+
+        <!-- Component 4: Routine Monitoring (Senevirathna/Rathnayaka) -->
+        <div class="comp-card">
+          <div class="comp-icon" style="background: rgba(33, 150, 243, 0.1); color: #2196f3;">🔄</div>
+          <h3>Adaptive routine monitoring & wellness support</h3>
+          <div class="comp-author">R.M.H.D. Rathnayaka - IT22560476</div>
+          
+          <div class="comp-section">
+            <h4>OVERVIEW</h4>
+            <p>A TinyML-powered system that learns each employee's personal work routine on-device and detects significant behavioral deviations — without cloud dependency or preset schedules. All routine changes require employee consent before being permanently applied.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>HOW IT WORKS</h4>
+            <ol class="comp-list">
+              <li><strong>Observation phase (1-2 weeks):</strong> Raspberry Pi continuously logs work start time, break times, lunch time, and end of day patterns per employee.</li>
+              <li><strong>Routine modeling:</strong> TinyML model builds a personal routine baseline using descriptive statistics — mean (μ) and standard deviation (σ) for each daily event.</li>
+              <li><strong>Deviation detection:</strong> Inference model μ ± max(1.5σ, 45min) differentiates natural flexibility from significant routine changes, triggering wellness cues when crossed.</li>
+              <li><strong>AI chatbot interventions:</strong> Rule-based chatbot converts routine and focus analytics into plain language recommendations: break reminders, refocus nudges, workplace adjustments.</li>
+            </ol>
+          </div>
+
+          <div class="comp-section">
+            <h4>HUMAN-IN-THE-LOOP CONSENT</h4>
+            <p>Unlike systems that auto-enforce schedules, EMOTIX requires employee approval before updating a routine permanently. This builds trust, autonomy, and ethical acceptance in the workplace.</p>
+          </div>
+
+          <div class="comp-section">
+            <h4>VALIDATION METRICS</h4>
+            <p>Presence data, accuracy, deviation detector reliability, chatbot intervention acceptance rate, and behavioral change post-intervention via user surveys.</p>
+          </div>
+
+          <div class="comp-tech-tags">
+            <span class="tech-tag">TinyML</span>
+            <span class="tech-tag">Raspberry Pi</span>
+            <span class="tech-tag">AI Chatbot</span>
+            <span class="tech-tag">μ ± 1.5σ control</span>
+            <span class="tech-tag">Edge processing</span>
+            <span class="tech-tag">Human-in-the-loop</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── Tech Highlight ── -->
-  <section style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <!-- ── UI/UX Creative Showcase ── -->
+  <section style="background: var(--bg); padding: 120px 0; overflow: hidden;">
     <div class="container">
-      <span class="section-label">Technology Stack</span>
-      <h2 class="section-title">Built on Cutting-Edge AI</h2>
-      <p class="section-desc">Combining computer vision, deep learning, and secure edge computing into a unified platform.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📷</div>
-          <h3>Computer Vision</h3>
-          <p>OpenCV · MediaPipe FaceMesh · EAR Algorithm · Gaze &amp; Fixation Tracking</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+        
+        <!-- Design Info -->
+        <div class="ui-ux-content">
+          <span class="section-label">Design Excellence</span>
+          <h2 class="section-title mt-8">Seamless UI/UX Experience</h2>
+          <p class="section-desc mt-8">
+            EMOTIX is designed with a "Human-First" philosophy, combining minimal aesthetics with powerful real-time emotional analytics. Our interface bridges the gap between complex AI data and intuitive user wellness.
+          </p>
+
+          <div class="design-features mt-8">
+            <div class="d-feat">
+              <div class="d-feat-dot"></div>
+              <div>
+                <h4>Glassmorphic Dashboard</h4>
+                <p>Clean, semi-transparent layers for focused data visualization.</p>
+              </div>
+            </div>
+            <div class="d-feat">
+              <div class="d-feat-dot" style="background: var(--accent-2);"></div>
+              <div>
+                <h4>Adaptive Dark Mode</h4>
+                <p>OLED-ready interface that reduces eye strain during long work hours.</p>
+              </div>
+            </div>
+            <div class="d-feat">
+              <div class="d-feat-dot" style="background: #ffc107;"></div>
+              <div>
+                <h4>Micro-Interactions</h4>
+                <p>Fluid transitions and haptic-inspired feedback for all focus cues.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚙️</div>
-          <h3>Edge Computing</h3>
-          <p>Raspberry Pi · TinyML · Local data processing · Zero cloud dependency</p>
+
+        <!-- Visual Preview (CSS Phone) -->
+        <div class="ui-ux-visual">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="app-header">
+                <div class="app-dot"></div>
+                <div class="app-logo">EMOTIX</div>
+                <div class="app-dot"></div>
+              </div>
+              <div class="app-chart">
+                <div class="chart-bar" style="height: 60%;"></div>
+                <div class="chart-bar" style="height: 85%;"></div>
+                <div class="chart-bar" style="height: 40%;"></div>
+                <div class="chart-bar" style="height: 70%;"></div>
+              </div>
+              <div class="app-card">
+                <div class="app-card-title">Stress Level</div>
+                <div class="app-card-val">Low</div>
+              </div>
+              <div class="app-card">
+                <div class="app-card-title">Focus Score</div>
+                <div class="app-card-val">82%</div>
+              </div>
+              <div class="app-btn">Wellness Break Required?</div>
+            </div>
+          </div>
+          <div class="visual-glow"></div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3>Security Layer</h3>
-          <p>AES-256-GCM · HMAC-SHA256 · AI Honeypot · MQTT monitoring</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>Deep Learning</h3>
-          <p>CNN · LSTM · Isolation Forest · FER+ Dataset · Rule-based chatbot</p>
-        </div>
+
       </div>
     </div>
   </section>
+
+  <style>
+    .ui-ux-content { position: relative; z-index: 2; }
+    .design-features { display: grid; gap: 24px; }
+    .d-feat { display: flex; gap: 16px; }
+    .d-feat-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex-shrink: 0; box-shadow: 0 0 10px rgba(0,212,170,0.5); }
+    .d-feat h4 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary); }
+    .d-feat p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .ui-ux-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .phone-mockup {
+      width: 280px;
+      height: 560px;
+      background: #060f0f;
+      border: 8px solid #1a2a2a;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 2;
+    }
+    .phone-screen {
+      background: var(--bg);
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px;
+      gap: 16px;
+    }
+    .app-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .app-logo { font-weight: 900; font-size: 0.9rem; color: var(--accent); letter-spacing: 2px; }
+    .app-dot { width: 8px; height: 8px; background: var(--surface-2); border-radius: 50%; }
+    .app-chart { display: flex; align-items: flex-end; gap: 10px; height: 100px; background: rgba(255,255,255,0.03); border-radius: 12px; padding: 12px; }
+    .chart-bar { flex: 1; background: var(--accent); border-radius: 4px; opacity: 0.6; }
+    .app-card { background: var(--surface); border: 1px solid var(--border); padding: 16px; border-radius: 16px; }
+    .app-card-title { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 4px; }
+    .app-card-val { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+    .app-btn { background: var(--accent); color: #060f0f; font-weight: 800; font-size: 0.8rem; padding: 14px; border-radius: 12px; text-align: center; margin-top: auto; }
+    .visual-glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,212,170,0.15) 0%, transparent 70%); z-index: 1; filter: blur(40px); }
+
+    @media (max-width: 992px) {
+      .ui-ux-content { text-align: center; }
+      .ui-ux-visual { margin-top: 60px; }
+      .container > div { grid-template-columns: 1fr !important; }
+      .d-feat { text-align: left; }
+    }
+  </style>
 
   <!-- ── CTA ── -->
   <section>
@@ -240,8 +457,8 @@
       </div>
       <hr class="footer-divider" />
       <div class="footer-bottom">
-        <p>&copy; 2024–2025 <span>EMOTIX Research Team</span>. All rights reserved.</p>
-        <p>SLIIT · Faculty of Computing · IT Research Project</p>
+        <p>&copy; 2025–2026 <span>EMOTIX Research Team</span>. All rights reserved.</p>
+        <p>SLIIT · Faculty of Computing · Group 25-26J-007</p>
       </div>
     </div>
   </footer>

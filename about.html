@@ -3,10 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — EMOTIX Research Team</title>
-  <meta name="description" content="Meet the EMOTIX research team — four undergraduate researchers from SLIIT." />
+  <title>About Us — EMOTIX Research Team | 25-26J-007</title>
+  <meta name="description" content="Meet the EMOTIX research team — supervisors and four undergraduate researchers from SLIIT. Group 25-26J-007." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300d4aa'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='900' fill='%23060f0f' font-family='sans-serif'>E</text></svg>" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── About Page Styles ── */
+
+    /* Supervisor Cards */
+    .supervisors-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .sup-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sup-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--teal-300));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .sup-card:hover {
+      border-color: rgba(0,212,170,0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+    .sup-card:hover::before { transform: scaleX(1); }
+
+    .sup-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(0,212,170,0.35);
+      flex-shrink: 0;
+      background: var(--surface-2);
+    }
+
+    .sup-role-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,212,170,0.1);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .sup-info h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+
+    .sup-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .sup-email:hover { color: var(--accent-2); }
+
+    /* Team Grid */
+    .team-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px 28px;
+      text-align: center;
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .member-card:hover {
+      border-color: rgba(0,212,170,0.45);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 30px rgba(0,212,170,0.08);
+    }
+
+    .member-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(0,212,170,0.3);
+      background: var(--surface-2);
+      margin-bottom: 18px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .member-card:hover .member-photo {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 6px rgba(0,212,170,0.1);
+    }
+
+    .member-id {
+      font-size: 0.72rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(0,212,170,0.08);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .member-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .member-role {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .member-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(0,212,170,0.06);
+      transition: all var(--transition);
+      word-break: break-all;
+      margin-top: auto;
+    }
+    .member-email:hover {
+      background: rgba(0,212,170,0.14);
+      border-color: var(--accent);
+      color: var(--accent-2);
+    }
+
+    @media (max-width: 600px) {
+      .supervisors-row { grid-template-columns: 1fr; }
+      .sup-card { flex-direction: column; text-align: center; }
+      .team-cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +201,7 @@
           <li><a href="milestones.html">Milestones</a></li>
           <li><a href="documents.html">Documents</a></li>
           <li><a href="presentations.html">Presentations</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
         <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -34,7 +214,7 @@
     <a href="milestones.html">Milestones</a>
     <a href="documents.html">Documents</a>
     <a href="presentations.html">Presentations</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html" class="active">About Us</a>
     <a href="contact.html">Contact Us</a>
   </div>
 
@@ -44,56 +224,60 @@
     <div class="container page-header-content">
       <span class="section-label">The Team</span>
       <h1>About Us</h1>
-      <p>Meet the researchers and supervisor behind the EMOTIX project.</p>
+      <p>Meet the researchers and supervisors behind the EMOTIX project.</p>
     </div>
   </div>
 
-  <!-- ── Supervisor ── -->
+  <!-- ── Main Section ── -->
   <section>
     <div class="container">
+
+      <!-- ══ Supervision ══ -->
       <span class="section-label">Research Supervision</span>
       <h2 class="section-title mt-8">Project Supervisor</h2>
       <p class="section-desc mt-8">
         Under the academic supervision of SLIIT's Faculty of Computing.
       </p>
 
-      <div class="supervisor-section">
-        <div class="supervisor-card">
-          <div class="supervisor-avatar">🎓</div>
-          <div class="supervisor-info">
-            <div class="team-role">Project Supervisor</div>
-            <h3>[ Supervisor Name ]</h3>
-            <p style="margin-top:8px; margin-bottom:12px;">
-              [ Add a short bio or description of your supervisor's academic role, specialization,
-              and relevance to the EMOTIX research domain. ]
-            </p>
-            <a href="mailto:supervisor@sliit.lk" class="team-email">
-              ✉ supervisor@sliit.lk
+      <div class="supervisors-row">
+
+        <!-- Supervisor -->
+        <div class="sup-card">
+          <img
+            src="images/team/supervisor_jayakody.png"
+            alt="Prof. Anuradha Jayakody"
+            class="sup-photo"
+          />
+          <div class="sup-info">
+            <div class="sup-role-tag">Project Supervisor</div>
+            <h3>Prof. Anuradha Jayakody</h3>
+            <a href="mailto:anuradha.j@sliit.lk" class="sup-email">
+              &#9993;&nbsp; anuradha.j@sliit.lk
             </a>
           </div>
         </div>
-      </div>
 
-      <!-- Co-Supervisor (optional) -->
-      <div style="margin-top:20px;">
-        <div class="supervisor-card">
-          <div class="supervisor-avatar">🏫</div>
-          <div class="supervisor-info">
-            <div class="team-role">Co-Supervisor · [ Optional ]</div>
-            <h3>[ Co-Supervisor Name ]</h3>
-            <p style="margin-top:8px; margin-bottom:12px;">
-              [ Add co-supervisor details here, or remove this card if not applicable. ]
-            </p>
-            <a href="mailto:cosupervisor@sliit.lk" class="team-email">
-              ✉ cosupervisor@sliit.lk
+        <!-- Co-Supervisor -->
+        <div class="sup-card">
+          <img
+            src="images/team/cosupervisor_iddamalgoda.png"
+            alt="Mr. Ashvinda Iddamalgoda"
+            class="sup-photo"
+          />
+          <div class="sup-info">
+            <div class="sup-role-tag">Co-Supervisor</div>
+            <h3>Mr. Ashvinda Iddamalgoda</h3>
+            <a href="mailto:ashvinda.i@sliit.lk" class="sup-email">
+              &#9993;&nbsp; ashvinda.i@sliit.lk
             </a>
           </div>
         </div>
-      </div>
 
-      <hr class="divider" />
+      </div><!-- /supervisors-row -->
 
-      <!-- ── Team Members ── -->
+      <hr class="divider" style="margin: 60px 0 48px;" />
+
+      <!-- ══ Research Team ══ -->
       <span class="section-label">Research Team</span>
       <h2 class="section-title mt-8">Meet the Researchers</h2>
       <p class="section-desc mt-8">
@@ -101,93 +285,101 @@
         for a distinct component of the EMOTIX system.
       </p>
 
-      <div class="team-grid">
+      <div class="team-cards-grid">
 
-        <!-- Member 1 -->
-        <div class="team-card">
-          <div class="team-avatar">👨‍💻</div>
-          <h3>[ Member 1 Name ]</h3>
-          <div class="team-role">AI / Deep Learning Engineer</div>
-          <p>
-            Responsible for the real-time AI stress detection component — developing the CNN + LSTM
-            pipeline for facial expression analysis and temporal stress recognition using the
-            FER+ dataset and Russell Circumplex Model.
-          </p>
-          <a href="mailto:member1@students.sliit.lk" class="team-email">
-            ✉ [ Add Email ]
+        <!-- 1 — L.W.D.K Perera -->
+        <div class="member-card">
+          <img
+            src="images/team/member_perera.jpg"
+            alt="L.W.D.K Perera"
+            class="member-photo"
+          />
+          <div class="member-id">IT22601810</div>
+          <h3>L.W.D.K Perera</h3>
+          <div class="member-role">AI-Based Eye Focus Detection &amp; Adaptive Learning Assistant</div>
+          <a href="mailto:it22601810@my.sliit.lk" class="member-email">
+            &#9993;&nbsp; it22601810@my.sliit.lk
           </a>
         </div>
 
-        <!-- Member 2 -->
-        <div class="team-card">
-          <div class="team-avatar">👩‍💻</div>
-          <h3>[ Member 2 Name ]</h3>
-          <div class="team-role">ML / Edge Computing Engineer</div>
-          <p>
-            Leads the adaptive routine monitoring and AI chatbot wellness component — implementing
-            TinyML on Raspberry Pi for privacy-preserving pattern learning and building the
-            rule-based conversational assistant.
-          </p>
-          <a href="mailto:member2@students.sliit.lk" class="team-email">
-            ✉ [ Add Email ]
+        <!-- 2 — K.G.A.N. Kariyawasam -->
+        <div class="member-card">
+          <img
+            src="images/team/member_kariyawasam.jpg"
+            alt="K.G.A.N. Kariyawasam"
+            class="member-photo"
+          />
+          <div class="member-id">IT22927170</div>
+          <h3>K.G.A.N. Kariyawasam</h3>
+          <div class="member-role">Real-Time Secure AI Stress Detection</div>
+          <a href="mailto:it22927170@my.sliit.lk" class="member-email">
+            &#9993;&nbsp; it22927170@my.sliit.lk
           </a>
         </div>
 
-        <!-- Member 3 — Dileesha -->
-        <div class="team-card">
-          <div class="team-avatar">👨‍💻</div>
-          <h3>Dileesha [ Add Surname ]</h3>
-          <div class="team-role">[ Add Role — e.g., Computer Vision Engineer ]</div>
-          <p>
-            [ Add a short description of Dileesha's research component, technical responsibilities,
-            and specific contributions to the EMOTIX system. ]
-          </p>
-          <a href="mailto:dileesha@students.sliit.lk" class="team-email">
-            ✉ [ Add Email ]
+        <!-- 3 — R.M.H.D. Rathnayaka -->
+        <div class="member-card">
+          <img
+            src="images/team/member_rathnayaka.png"
+            alt="R.M.H.D. Rathnayaka"
+            class="member-photo"
+          />
+          <div class="member-id">IT22560476</div>
+          <h3>R.M.H.D. Rathnayaka</h3>
+          <div class="member-role">Adaptive Routine Monitoring &amp; Wellness Support</div>
+          <a href="mailto:it22560476@my.sliit.lk" class="member-email">
+            &#9993;&nbsp; it22560476@my.sliit.lk
           </a>
         </div>
 
-        <!-- Member 4 — Vihanga -->
-        <div class="team-card">
-          <div class="team-avatar">👩‍💻</div>
-          <h3>Vihanga [ Add Surname ]</h3>
-          <div class="team-role">[ Add Role — e.g., Cybersecurity Engineer ]</div>
-          <p>
-            [ Add a short description of Vihanga's research component, technical responsibilities,
-            and specific contributions to the EMOTIX system. ]
-          </p>
-          <a href="mailto:vihanga@students.sliit.lk" class="team-email">
-            ✉ [ Add Email ]
+        <!-- 4 — S.A.V.P. Jayarathna -->
+        <div class="member-card">
+          <img
+            src="images/team/member_jayarathna.png"
+            alt="S.A.V.P. Jayarathna"
+            class="member-photo"
+          />
+          <div class="member-id">IT22560612</div>
+          <h3>S.A.V.P. Jayarathna</h3>
+          <div class="member-role">Emotix Honeypot &mdash; Deception Based Attack Detection</div>
+          <a href="mailto:it22560612@my.sliit.lk" class="member-email">
+            &#9993;&nbsp; it22560612@my.sliit.lk
           </a>
         </div>
 
-      </div><!-- /team-grid -->
+      </div><!-- /team-cards-grid -->
 
       <!-- ── Project Info ── -->
-      <hr class="divider" />
-      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px; margin-top:8px;">
+      <hr class="divider" style="margin: 64px 0 48px;" />
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:20px;">
         <div class="tech-category">
-          <h4>🏫 Institution</h4>
+          <h4>&#127979; Institution</h4>
           <ul>
             <li>Sri Lanka Institute of Information Technology (SLIIT)</li>
           </ul>
         </div>
         <div class="tech-category">
-          <h4>📚 Faculty</h4>
+          <h4>&#128218; Faculty &amp; Department</h4>
           <ul>
             <li>Faculty of Computing</li>
-            <li>[ Add Department ]</li>
+            <li>Dept. of Computer Systems &amp; Network Engineering</li>
           </ul>
         </div>
         <div class="tech-category">
-          <h4>📅 Academic Year</h4>
+          <h4>&#128203; Group Number</h4>
           <ul>
-            <li>2024 / 2025</li>
-            <li>[ Add Semester / Year of Study ]</li>
+            <li>25-26J-007</li>
           </ul>
         </div>
         <div class="tech-category">
-          <h4>🔬 Research Area</h4>
+          <h4>&#128197; Academic Year</h4>
+          <ul>
+            <li>2025 / 2026</li>
+            <li>Final Year &mdash; Year 4, Semester 2</li>
+          </ul>
+        </div>
+        <div class="tech-category">
+          <h4>&#128300; Research Area</h4>
           <ul>
             <li>AI &amp; Machine Learning</li>
             <li>Edge Computing</li>
@@ -228,8 +420,8 @@
       </div>
       <hr class="footer-divider" />
       <div class="footer-bottom">
-        <p>&copy; 2024–2025 <span>EMOTIX Research Team</span>. All rights reserved.</p>
-        <p>SLIIT · Faculty of Computing · IT Research Project</p>
+        <p>&copy; 2025–2026 <span>EMOTIX Research Team</span>. All rights reserved.</p>
+        <p>SLIIT &nbsp;·&nbsp; Faculty of Computing &nbsp;·&nbsp; Group 25-26J-007</p>
       </div>
     </div>
   </footer>
