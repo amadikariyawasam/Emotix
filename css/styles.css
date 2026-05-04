@@ -4,35 +4,36 @@
    ============================================================ */
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 /* ── CSS Variables ── */
 :root {
-  --teal-900: #0a2e2e;
-  --teal-800: #0e3d3d;
-  --teal-700: #114f4f;
-  --teal-600: #1a6b6b;
-  --teal-500: #1f8080;
-  --teal-400: #23a0a0;
-  --teal-300: #4fc4c4;
-  --teal-100: #d0f0f0;
+  /* Updated to more vibrant dark theme values */
+  --teal-900: #061818;
+  --teal-800: #092424;
+  --teal-700: #0c3333;
+  --teal-600: #114949;
+  --teal-500: #176464;
+  --teal-400: #208787;
+  --teal-300: #2fb5b5;
+  --teal-100: #c9f5f5;
 
-  --accent:   #00d4aa;
-  --accent-2: #7fffde;
-  --gold:     #f5c842;
+  --accent:   #00e6b8;
+  --accent-2: #66ffda;
+  --gold:     #ffd043;
 
-  --dark:     #060f0f;
-  --surface:  #0d1f1f;
-  --surface-2:#132828;
-  --surface-3:#1a3333;
-  --border:   rgba(0,212,170,0.18);
+  --dark:     #030909;
+  --surface:  rgba(13, 31, 31, 0.65);
+  --surface-2:rgba(19, 40, 40, 0.75);
+  --surface-3:rgba(26, 51, 51, 0.85);
+  --border:   rgba(0, 230, 184, 0.25);
 
-  --text-primary:   #e8f8f8;
-  --text-secondary: #9ecece;
-  --text-muted:     #5a8a8a;
+  --text-primary:   #f0fdfd;
+  --text-secondary: #aae0e0;
+  --text-muted:     #6a9c9c;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-body:    'Inter', sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -250,20 +251,20 @@ section { padding: 90px 0; }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 60% at 70% 40%, rgba(0,212,170,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(31,128,128,0.1) 0%, transparent 60%),
-    var(--dark);
+  background: 
+    linear-gradient(to bottom, rgba(3,9,9,0.3) 0%, rgba(3,9,9,0.95) 100%),
+    url('../images/hero_bg_abstract.png') center/cover no-repeat;
+  filter: brightness(0.9) contrast(1.1);
 }
 
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0,230,184,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,230,184,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at center, black 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse 80% 80% at top center, black 10%, transparent 70%);
 }
 
 .hero-content {
@@ -424,12 +425,15 @@ section { padding: 90px 0; }
 
 .feature-card {
   background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 32px 28px;
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card::before {
@@ -599,7 +603,9 @@ section { padding: 90px 0; }
 .page-header-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 50% 100% at 80% 50%, rgba(0,212,170,0.05) 0%, transparent 70%);
+  background: 
+    linear-gradient(to bottom, rgba(3,9,9,0.5) 0%, rgba(3,9,9,0.95) 100%),
+    url('../images/header_bg_pulse.png') center/cover no-repeat;
 }
 
 .page-header-content {
